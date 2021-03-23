@@ -2,4 +2,4 @@
 
 exec bash
 cd /home/ubuntu/deploy-test
-npm start
+npm install
