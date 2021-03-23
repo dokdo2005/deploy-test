@@ -1,4 +1,5 @@
 #!/bin/bash
 
-/home/ubuntu/.nvm/versions/node/v14.16.0/bin/npm install
-/home/ubuntu/.nvm/versions/node/v14.16.0/bin/npm start
+cd /home/ubuntu/deploy-test
+npm install
+npm start
