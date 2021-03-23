@@ -1,4 +1,4 @@
-source /home/ec2-user/.bash_profile
+source /home/ubuntu/.bash_profile
 
 npm install
 npm start

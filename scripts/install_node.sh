@@ -1,4 +1,4 @@
-source /home/ec2-user/.bash_profile
+source /home/ubuntu/.bash_profile
 
 sudo apt update
 sudo apt install wget
