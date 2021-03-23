@@ -54,7 +54,7 @@ hooks:
     BeforeInstall:
         - location: scripts/install_node.sh
           timeout: 300
-          runas: root
+          runas: ubuntu
     # During the ApplicationStart deployment lifecycle event, run the commands
     #   in the script specified in "location".
     ApplicationStart:
