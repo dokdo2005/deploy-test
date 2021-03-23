@@ -1,4 +1,4 @@
-source /home/ubuntu/.bash_profile
+#!/bin/bash
 
-npm install
-npm start
+/home/ubuntu/.nvm/versions/node/v14.16.0/bin/npm install
+/home/ubuntu/.nvm/versions/node/v14.16.0/bin/npm start

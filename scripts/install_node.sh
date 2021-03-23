@@ -1,4 +1,4 @@
-source /home/ubuntu/.bash_profile
+#!/bin/bash
 
 sudo apt update
 sudo apt install wget
