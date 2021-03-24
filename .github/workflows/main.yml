@@ -33,4 +33,7 @@ jobs:
                   aws-region: ap-northeast-2
 
             - name: 코드 배포
-              run: aws deploy create-deployment --application-name deploy-example --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name deploy-example-group --github-location repository=$GITHUB_REPOSITORY,commitId=$GITHUB_SHA
+              run: aws deploy create-deployment --application-name $APP_NAME --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name $DEPLOY_GROUP_NAME --github-location repository=$GITHUB_REPOSITORY,commitId=$GITHUB_SHA
+              env:
+                  APP_NAME: deploy-example
+                  DEPLOY_GROUP_NAME: deploy-example-group
