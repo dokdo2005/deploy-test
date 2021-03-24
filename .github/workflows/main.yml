@@ -25,28 +25,12 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - uses: actions/checkout@v2
 
-            - name: Sourcetoad - AWS CodeDeploy for GitHub Actions
-              # You may pin to the exact commit or the version.
-              # uses: sourcetoad/aws-codedeploy-action@d9203c71d2461bd648f77576e37876d4c8f14af2
-              uses: sourcetoad/aws-codedeploy-action@v1.0.3
-              with:
-                  # AWS Access Key
-                  aws_access_key: AKIAWVIBUTIOZLUZV5F
-                  # AWS Secret Key
-                  aws_secret_key: w977oihI+WJ90ZMGeLEqUKKUMPBXD3qLCRpIxOOY
-                  # AWS Region
-                  aws_region: ap-northeast-2
-                  # S3 Bucket for CodeDeploy Assets
-                  s3_bucket: dokdo2005
-                  # S3 Folder for ZIP.
-                  s3_folder: deploy-example
-                  # Directory to be archived instead of entire workspace.
-                  directory: ./
-                  # Files to be excluded during archiving (space delimited).
-                  excluded_files: ".git/* .env node_modules/*"
-                  # AWS CodeDeploy Application Name
-                  codedeploy_name: deploy-example
-                  # AWS CodeDeploy Application Group
-                  codedeploy_group: deploy-example-group
-                  # Max amount of iterations (15s increments) to wait for a deployment
-                  max_polling_iterations: 60
+            - name: aws 세팅
+              uses: aws-actions/configure-aws-credentials@v1
+                with:
+                    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    aws-region: ap-northeast-2
+
+            - name: 코드 배포
+              run: aws deploy create-deployment --application-name deploy-example --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name deploy-example-group --github-location repository=${{ env.GITHUB_REPOSITORY }},commitId=${{ env.GITHUB_SHA }}
