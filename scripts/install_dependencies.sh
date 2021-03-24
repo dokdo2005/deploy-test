@@ -1,6 +1,8 @@
 #!/bin/bash
 
 exec bash
-cd /home/ubuntu/deploy-test
+cd /home/ubuntu
+chown ubuntu deploy-example
+cd ./deploy-example
 npm install pm2 -g
 npm install
